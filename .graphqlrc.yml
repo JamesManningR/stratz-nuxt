@@ -1,0 +1,2 @@
+schema: "./node_modules/@altgen/stratz-types/schema.graphql"
+documents: "src/**/*.{graphql,gql,js,ts,jsx,tsx}"
