@@ -1,0 +1,13 @@
+@use 'sass:string';
+@use 'sass:map';
+$family: (
+	heading: Verdana,
+	body: sans-serif,
+	monospace: 'Monaco, Consolas, \'Andale Mono\', \'DejaVu Sans Mono\', monospace'
+);
+$font-size--base: 1.6rem; // Set base font size to 16 px (1rem = 10px)
+
+// Nicer syntax for accessing maps ==========================
+@function family($font-name) {
+	@return map.get($family, $font-name);
+}

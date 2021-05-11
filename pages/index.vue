@@ -1,49 +1,44 @@
 <template>
-  <div class="container">
-    <button class="button--green" @click="fetchProfile()">Fetch Matches</button>
-    <button class="button--green" @click="logState()">Log State</button>
-    <div v-if="profile.id != 0" class="profile">
-      <img
-        :src="`https://cdn.akamai.steamstatic.com/steamcommunity/public/images/avatars/${profile.steamAccount.avatar}`" 
-        :alt="profile.steamAccount.name"
-      />
-      <h1>{{ profile.steamAccount.name }}</h1>
-      <ul class="matches">
-        <match-summary-card 
-          v-for="match in profile.matches"
-          :key="match.id"
-          :class="{
-            'match-summary--loss':
-              match.didRadiantWin != match.players[0].isRadiant,
-          }"
-          :match="match"
-        >
-        </match-summary-card>
-      </ul>
-    </div>
-  </div>
+  <main class="login">
+    <form class="login__form">
+      <h1 class="login__title">Enter Your Steam Id</h1>
+      <input id="steamId" class="login__input" type="text" name="steamId" />
+      <button type="submit">Submit</button>
+    </form>
+  </main>
 </template>
 
 <script lang="ts">
 import Vue from 'vue'
-import { mapActions, mapState } from 'vuex'
 
-export default Vue.extend({
-  computed: {
-    ...mapState(['profile']),
-  },
-  methods: {
-    logState() {
-      console.log(this.profile)
-    },
-    ...mapActions(['fetchProfile']),
-  },
-})
+export default Vue.extend({})
 </script>
 
 <style scoped lang="scss">
-.match {
-  border: 1px solid #CCC;
-  border-collapse: collapse;
+.login {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-image: linear-gradient(
+    178.2deg,
+    rgba(118, 8, 23, 1) 10.9%,
+    rgba(158, 12, 33, 1) 62.6%
+  );
+
+  &__form {
+    display: flex;
+    padding: 2rem 5rem;
+    flex-wrap: wrap;
+    background-color: #4b4b4b;
+  }
+
+  &__title {
+    margin-bottom: 1em;
+    flex-basis: 100%;
+  }
+
+  &__input {
+    flex-grow: 1;
+  }
 }
 </style>

@@ -1,0 +1,41 @@
+@use "../../theme/variables/viewports";
+
+// BP - Breakpoint
+@mixin bp($size) {
+	$breakpoint: map-get(viewports.$viewports, $size);
+
+	@if $breakpoint {
+		$size: $breakpoint;
+	}
+	@media only screen and (min-width: #{ $breakpoint }) {
+		@content;
+	}
+}
+
+// BP - Breakpoint Down
+@mixin bpd($size) {
+	$breakpoint: map-get(viewports.$viewports, $size);
+
+	@if $breakpoint {
+		$size: $breakpoint;
+	}
+	@media only screen and (max-width: #{ $breakpoint }) {
+		@content;
+	}
+}
+
+// BPB - Breakpoint between
+@mixin bpb($min-size, $max-size) {
+	$min-breakpoint: map-get(viewports.$viewports, $min-size);
+	$max-breakpoint: map-get(viewports.$viewports, $max-size);
+
+	@if $min-breakpoint {
+		$min-size: $min-breakpoint;
+	}
+	@if $max-breakpoint {
+		$max-size: $max-breakpoint;
+	}
+	@media only screen and (min-width: #{ $min-size }) and (max-width: #{ $max-size }) {
+		@content;
+	}
+}

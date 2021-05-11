@@ -1,0 +1,19 @@
+// #(?:[0-9a-fA-F]{3}){1,2}
+
+// Colors
+// Alt for dark/light variants
+$primary: #CB5857; // Priamry brand color
+
+// Backgrounds
+$background: linear-gradient(
+  178.2deg,
+  rgba(118, 8, 23, 1) 10.9%,
+  rgba(158, 12, 33, 1) 62.6%
+);
+$background--secondary: #434343;
+$background--tertiary: #EDEDED;
+
+// Text colour - used on body (default)
+$text: #282828;
+$text--inverted: #FFFFFF;
+$text--secondary: #333333;

@@ -19,7 +19,8 @@
     "graphql": "^15.5.0",
     "graphql-tag": "^2.12.4",
     "nuxt": "^2.14.0",
-    "sass": "^1.32.12"
+    "sass": "^1.32.12",
+    "stylelint-scss": "^3.19.0"
   },
   "devDependencies": {
     "@altgen/stratz-types": "^1.0.1",

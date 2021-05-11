@@ -6,6 +6,7 @@
       :alt="match.players[0].hero.displayName"
     />
     <h3 class="match-summary__hero-name">{{match.players[0].hero.displayName}}</h3>
+    
   </li>
 </template>
 
