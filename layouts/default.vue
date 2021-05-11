@@ -1,5 +1,8 @@
 <template>
-  <Nuxt />
+  <div class="app">
+    <app-header />
+    <Nuxt />
+  </div>
 </template>
 
 <style lang="scss">

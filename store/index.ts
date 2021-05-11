@@ -28,13 +28,13 @@ export const mutations: MutationTree<RootState> = {
 }
 
 export const actions: ActionTree<RootState, RootState> = {
-  async fetchProfile({ commit }) {
+  async fetchProfile({ commit }, playerId: Number) {
     try {
       await this.app.apolloProvider.defaultClient
         .query({
           query: getProfile,
           variables: {
-            playerId: 40292283,
+            playerId,
           },
         })
         .then((res) => {

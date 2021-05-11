@@ -1,12 +1,20 @@
 <template>
-  <li class="match-summary">
+  <li
+    class="match-summary"
+    :class="{
+      'match-summary--loss': match.didRadiantWin != match.players[0].isRadiant,
+    }"
+  >
     <img
       class="match-summary__hero-img"
-      :src="`http://cdn.dota2.com/apps/dota2/images/heroes/${match.players[0].hero.shortName}_sb.png`" 
+      :src="`http://cdn.dota2.com/apps/dota2/images/heroes/${match.players[0].hero.shortName}_sb.png`"
       :alt="match.players[0].hero.displayName"
     />
-    <h3 class="match-summary__hero-name">{{match.players[0].hero.displayName}}</h3>
-    
+    <h3 class="match-summary__hero-name">
+      {{ match.players[0].hero.displayName }}
+    </h3>
+    <h4>{{ playerTeam }} Team</h4>
+    <h4>{{ winningTeam }} Win</h4>
   </li>
 </template>
 
@@ -20,6 +28,17 @@ export default Vue.extend({
     match: {
       type: Object as () => MatchType,
       required: true,
+    },
+  },
+  computed: {
+    matchWon() {
+      return this.match.didRadiantWin !== this.match.player.isRadiant
+    },
+    winningTeam() {
+      return this.match.didRadiantWin ? 'Radiant' : 'Dire'
+    },
+    playerTeam() {
+      return this.match.players[0].isRadiant ? 'Radiant' : 'Dire'
     },
   },
 })

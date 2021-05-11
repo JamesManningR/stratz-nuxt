@@ -2,18 +2,14 @@
   <main>
     <div v-if="profile.id != 0" class="profile">
       <img
-        :src="`https://cdn.akamai.steamstatic.com/steamcommunity/public/images/avatars/${profile.steamAccount.avatar}`" 
+        :src="`https://cdn.akamai.steamstatic.com/steamcommunity/public/images/avatars/${profile.steamAccount.avatar}`"
         :alt="profile.steamAccount.name"
       />
       <h1>{{ profile.steamAccount.name }}</h1>
       <ul class="matches">
-        <match-summary-card 
+        <match-summary-card
           v-for="match in profile.matches"
           :key="match.id"
-          :class="{
-            'match-summary--loss':
-              match.didRadiantWin != match.players[0].isRadiant,
-          }"
           :match="match"
         >
         </match-summary-card>
