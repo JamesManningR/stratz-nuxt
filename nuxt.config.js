@@ -33,6 +33,9 @@ export default {
     {
       src: '~/scss',
     },
+    {
+      src: 'normalize.css',
+    },
   ],
   /*
    ** Plugins to load before mounting the App

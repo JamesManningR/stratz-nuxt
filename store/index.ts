@@ -1,20 +1,15 @@
 
-import { SteamAccountType } from '@altgen/stratz-types'
+import { PlayerType } from '@altgen/stratz-types'
 import { GetterTree, ActionTree, MutationTree } from 'vuex'
 
 import { getProfile } from '~/graphql/queries/profile'
 
 export type RootState = {
-  profile: SteamAccountType
+  profile: PlayerType
 }
 
 export const state: RootState = {
-  profile: {
-    id: 0,
-    profileUri: '',
-    isAnonymous: false,
-    isStratzAnonymous: false,
-  },
+  profile: {},
 }
 
 export const getters: GetterTree<RootState, RootState> = {
@@ -22,7 +17,7 @@ export const getters: GetterTree<RootState, RootState> = {
 }
 
 export const mutations: MutationTree<RootState> = {
-  SET_PROFILE(state: RootState, payload: SteamAccountType): void {
+  SET_PROFILE(state: RootState, payload: PlayerType): void {
     state.profile = payload
   },
 }

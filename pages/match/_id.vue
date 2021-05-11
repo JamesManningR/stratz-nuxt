@@ -1,7 +1,5 @@
 <template>
   <div class="container">
-    <button class="button--green" @click="fetchMatch()">Fetch Matches</button>
-    <button class="button--green" @click="logState()">Log State</button>
     <table v-if="matches.match" class="match">
       <thead>
         <tr>
@@ -31,18 +29,16 @@
 <script lang="ts">
 import Vue from 'vue'
 import { mapActions, mapState } from 'vuex'
+import { Component } from 'vue-property-decorator'
+import { MatchState } from '~/store/matches'
 
-export default Vue.extend({
-  computed: {
-    ...mapState(['matches']),
-  },
-  methods: {
-    logState() {
-      console.log(this.matches)
-    },
-    ...mapActions('matches', ['fetchMatch']),
-  },
+@Component({
+  computed: mapState(['matches']),
+  methods: mapActions('matches', ['fetchMatch']),
 })
+export default class MatchPage extends Vue {
+  public matches!: MatchState
+}
 </script>
 
 <style scoped lang="scss">

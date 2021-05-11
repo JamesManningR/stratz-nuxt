@@ -19,29 +19,28 @@
 </template>
 
 <script lang="ts">
+import { Component, Prop } from 'vue-property-decorator'
 import { MatchType } from '@altgen/stratz-types'
 
 import Vue from 'vue'
 
-export default Vue.extend({
-  props: {
-    match: {
-      type: Object as () => MatchType,
-      required: true,
-    },
-  },
-  computed: {
-    matchWon() {
-      return this.match.didRadiantWin !== this.match.player.isRadiant
-    },
-    winningTeam() {
-      return this.match.didRadiantWin ? 'Radiant' : 'Dire'
-    },
-    playerTeam() {
-      return this.match.players[0].isRadiant ? 'Radiant' : 'Dire'
-    },
-  },
-})
+@Component()
+export default class MatchSummaryCard extends Vue {
+  @Prop({ type: Object as () => MatchType })
+  public match!: MatchType
+
+  get matchWon() {
+    return this.match.didRadiantWin !== this.match.players[0].isRadiant
+  }
+
+  get winningTeam() {
+    return this.match.didRadiantWin ? 'Radiant' : 'Dire'
+  }
+
+  get playerTeam() {
+    return this.match.players[0].isRadiant ? 'Radiant' : 'Dire'
+  }
+}
 </script>
 
 <style scoped lang="scss">

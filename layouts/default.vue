@@ -38,6 +38,11 @@ button {
   border-radius: 1em;
 }
 
+ul {
+  list-style: none;
+  padding: 0;
+}
+
 .sr-only {
   width: 1px;
   height: 1px;
