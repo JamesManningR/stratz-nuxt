@@ -54,7 +54,7 @@ export default {
     '@nuxtjs/style-resources',
   ],
   styleResources: {
-    scss: ['~/scss'],
+    scss: ['~/assets/scss'],
   },
   /*
    ** Nuxt.js modules
