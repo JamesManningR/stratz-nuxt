@@ -7,7 +7,7 @@
 
 <style lang="scss">
 body {
-  background-image: colors.$background;
+  background-image: $background;
 }
 
 *,
