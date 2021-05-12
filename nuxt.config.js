@@ -31,9 +31,6 @@ export default {
    */
   css: [
     {
-      src: '~/scss',
-    },
-    {
       src: 'normalize.css',
     },
   ],
@@ -54,7 +51,11 @@ export default {
     '@nuxt/typescript-build',
     // Doc: https://github.com/nuxt-community/stylelint-module
     '@nuxtjs/stylelint-module',
+    '@nuxtjs/style-resources',
   ],
+  styleResources: {
+    scss: ['~/scss'],
+  },
   /*
    ** Nuxt.js modules
    */

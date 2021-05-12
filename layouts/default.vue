@@ -6,6 +6,10 @@
 </template>
 
 <style lang="scss">
+body {
+  background-image: colors.$background;
+}
+
 *,
 *::before,
 *::after {
