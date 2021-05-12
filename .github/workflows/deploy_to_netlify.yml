@@ -33,7 +33,10 @@ jobs:
 
       - name: Get Dependencies if needed
         if: steps.cache-node-modules.outputs.cache-hit != 'true'
-        run: npm install --production
+        run: npm install
+        env:
+          NPM_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
+
 
       - name: Build dist
         run: npm run build
