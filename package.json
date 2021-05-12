@@ -16,7 +16,12 @@
     "@nuxt/typescript-build": "^2.0.3",
     "@nuxtjs/apollo": "^4.0.1-rc.5",
     "@nuxtjs/axios": "^5.12.0",
+    "@nuxtjs/eslint-config": "^3.1.0",
+    "@nuxtjs/eslint-config-typescript": "^3.0.0",
     "@nuxtjs/style-resources": "^1.0.0",
+    "@nuxtjs/eslint-module": "^2.0.0",
+    "@nuxtjs/stylelint-module": "^4.0.0",
+    "babel-eslint": "^10.1.0",
     "dart-sass": "^1.25.0",
     "eslint": "^7.5.0",
     "eslint-config-prettier": "^6.11.0",
@@ -28,6 +33,9 @@
     "normalize.css": "^8.0.1",
     "nuxt": "^2.15.6",
     "sass": "^1.32.12",
+    "stylelint": "^13.6.1",
+    "stylelint-config-prettier": "^8.0.2",
+    "stylelint-config-standard": "^20.0.0",
     "stylelint-scss": "^3.19.0",
     "vue-class-component": "^7.2.6",
     "vue-property-decorator": "^9.1.2"
@@ -35,15 +43,7 @@
   "devDependencies": {
     "@altgen/stratz-types": "^1.0.1",
     "@nuxt/types": "^2.14.0",
-    "@nuxtjs/eslint-config": "^3.1.0",
-    "@nuxtjs/eslint-config-typescript": "^3.0.0",
-    "@nuxtjs/eslint-module": "^2.0.0",
-    "@nuxtjs/stylelint-module": "^4.0.0",
-    "babel-eslint": "^10.1.0",
-    "prettier": "^2.0.5",
-    "stylelint": "^13.6.1",
-    "stylelint-config-prettier": "^8.0.2",
-    "stylelint-config-standard": "^20.0.0"
+    "prettier": "^2.0.5"
   },
   "resolutions": {
     "@babel/core": "7.13.15",
