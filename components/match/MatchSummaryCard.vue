@@ -24,7 +24,7 @@ import { MatchType } from '@altgen/stratz-types'
 
 import Vue from 'vue'
 
-@Component()
+@Component
 export default class MatchSummaryCard extends Vue {
   @Prop({ type: Object as () => MatchType })
   public match!: MatchType

@@ -10,8 +10,10 @@
 
 <script lang="ts">
 import Vue from 'vue'
+import { Component } from 'vue-property-decorator'
 
-export default Vue.extend({})
+@Component
+export default class IndexPage extends Vue {}
 </script>
 
 <style scoped lang="scss">
@@ -19,11 +21,6 @@ export default Vue.extend({})
   display: flex;
   align-items: center;
   justify-content: center;
-  background-image: linear-gradient(
-    178.2deg,
-    rgba(118, 8, 23, 1) 10.9%,
-    rgba(158, 12, 33, 1) 62.6%
-  );
 
   &__form {
     display: flex;
