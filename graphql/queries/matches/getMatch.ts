@@ -1,5 +1,5 @@
 // TODO: Fix this and allow for the use of .gql file type
-import { gql } from 'graphql-tag'
+import gql from 'graphql-tag'
 
 export const getMatch = gql`
   query getMatch($matchId: Long!) {
