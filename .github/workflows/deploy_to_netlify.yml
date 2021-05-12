@@ -39,7 +39,7 @@ jobs:
 
 
       - name: Build dist
-        run: npm run build
+        run: npm run generate
 
       - name: Archive Build
         uses: actions/upload-artifact@master
@@ -65,7 +65,6 @@ jobs:
         uses: nwtgck/actions-netlify@v1.2.2
         with:
           publish-dir: dist
-          deploy-messege: "Deployed from Github"
         env:
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_ACCESS_TOKEN }}
           NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
