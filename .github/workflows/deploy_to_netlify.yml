@@ -27,7 +27,7 @@ jobs:
             ${{ runner.os }}-
       - name: Setup build env
         if: steps.cache-node-modules.outputs.cache-hit != 'true'
-        run: yarn
+        run: yarn --production
 
       - name: Build dist
         run: yarn build
