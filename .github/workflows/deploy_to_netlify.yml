@@ -30,8 +30,10 @@ jobs:
             ${{ runner.os }}-build-${{ env.cache-name }}-
             ${{ runner.os }}-build-
             ${{ runner.os }}-
-      - name: Setup build env
+
+      - name: Get Dependencies if needed
         if: steps.cache-node-modules.outputs.cache-hit != 'true'
+        run: yarn workspaces focus --all --production
 
       - name: Build dist
         run: yarn build
