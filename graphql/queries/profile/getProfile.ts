@@ -25,8 +25,10 @@ export const getProfile = gql`
             displayName
             shortName
           }
+          isVictory
           isRadiant
-          roleBasic
+          role
+          lane
           kills
           deaths
           assists

@@ -1,6 +1,9 @@
 name: Publish to Netlify
 on:
   workflow_dispatch:
+    push:
+    branches:
+      - "main"
 
 jobs:
   build:
