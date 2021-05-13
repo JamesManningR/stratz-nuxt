@@ -6,8 +6,10 @@
 </template>
 
 <style lang="scss">
+@import '~/assets/scss/init/theming';
+
 body {
-  background: #efefef;
+  background: $background;
   color: $text;
   font-family: font-family('body');
 }
@@ -64,6 +66,8 @@ ul {
 
 svg {
   @include square(1em);
+
+  fill: currentColor;
 }
 
 .sr-only {

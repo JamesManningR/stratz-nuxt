@@ -2,20 +2,48 @@
 
 // Colors
 // Alt for dark/light variants
-$primary: #CB5857; // Priamry brand color
-$green: #4c9d49;
-$red: #c52e1c;
+$green: var(--col-green);
+$red: var(--col-red);
 
 // Backgrounds
-$background: linear-gradient(
-  178.2deg,
-  rgba(118, 8, 23, 1) 10.9%,
-  rgba(158, 12, 33, 1) 62.6%
-);
-$background--secondary: #EAEAEA;
-$background--tertiary: #EDEDED;
+$background: var(--col-background);
+$background--secondary: var(--col-secondary);
+$background--tertiary: var(--col-tertiary);
 
 // Text colour - used on body (default)
-$text: #3a3a3a;
-$text--inverted: #dadada;
-$text--secondary: #555;
+$text: var(--col-text);
+$text--inverted: var(--col-text--inverted);
+$text--secondary: var(--col-text--secondary);
+
+
+$colors: (
+  base: (
+    red: #c52e1c,
+    green: #4c9d49,
+
+    background: #1a1a1a,
+    background--secondary: #242424,
+    background--tertiary: #323232,
+
+    text: #DADADA,
+    text--inverted: #3a3a3a,
+    text--secondary: #383838,
+
+    gradient: linear-gradient(
+      178.2deg,
+      rgba(118, 8, 23, 1) 10.9%,
+      rgba(158, 12, 33, 1) 62.6%),
+  ),
+  light: (
+    background--secondary: #EAEAEA,
+    background--tertiary: #EDEDED,
+      
+    text: #3a3a3a,
+    text--inverted: #dadada,
+    text--secondary: #555,
+  ),
+  color-blind: (
+    red: #F31DE3,
+    green: #6CFF26,
+  ),
+)
