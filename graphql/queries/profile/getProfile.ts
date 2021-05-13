@@ -33,6 +33,7 @@ export const getProfile = gql`
           deaths
           assists
           goldPerMinute
+          experiencePerMinute
         }
       }
     }
