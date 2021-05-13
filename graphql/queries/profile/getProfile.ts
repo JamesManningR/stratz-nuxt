@@ -4,8 +4,12 @@ export const getProfile = gql`
   query getProfile($playerId: Long!, $matchAmount: Int = 10) {
     player(steamAccountId: $playerId) {
       steamAccount {
-        name
         avatar
+        name
+        cityId
+        id
+        isDotaPlusSubscriber
+        profileUri
       }
       behaviorScore
       isFollowed
@@ -21,8 +25,10 @@ export const getProfile = gql`
             displayName
             shortName
           }
+          isVictory
           isRadiant
-          roleBasic
+          role
+          lane
           kills
           deaths
           assists

@@ -8,6 +8,7 @@
           <router-link to="/player/81907324">Marshall</router-link>
           <router-link to="/player/172514694">Prior</router-link>
           <router-link to="/player/1036643858">Rhodes</router-link>
+          <router-link to="/player/87277045">Our Boy</router-link>
         </li>
       </ul>
     </nav>

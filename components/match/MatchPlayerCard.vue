@@ -35,18 +35,15 @@
 </template>
 
 <script lang="ts">
+import Vue from 'vue'
+import { Component, Prop } from 'vue-property-decorator'
 import { MatchPlayerType } from '@altgen/stratz-types'
 
-import Vue from 'vue'
-
-export default Vue.extend({
-  props: {
-    player: {
-      type: Object as () => MatchPlayerType,
-      required: true,
-    },
-  },
-})
+@Component
+export default class AppHeader extends Vue {
+  @Prop({ type: Object as () => MatchPlayerType })
+  public player!: MatchPlayerType
+}
 </script>
 
 <style scoped lang="scss">
