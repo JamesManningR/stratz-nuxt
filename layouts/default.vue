@@ -1,13 +1,19 @@
 <template>
-  <div class="app">
+  <div class="app theme--light">
     <app-header />
     <Nuxt />
   </div>
 </template>
 
 <style lang="scss">
+@import '~/assets/scss/init/theming';
+
 body {
+<<<<<<< HEAD
   background: #efefef;
+=======
+  background: $background;
+>>>>>>> dev
   color: $text;
   font-family: font-family('body');
 }
@@ -62,12 +68,19 @@ ul {
   padding: 0;
 }
 
+<<<<<<< HEAD
 section {
   padding: 0 1em;
 }
 
 svg {
   @include square(1em);
+=======
+svg {
+  @include square(1em);
+
+  fill: currentColor;
+>>>>>>> dev
 }
 
 .sr-only {

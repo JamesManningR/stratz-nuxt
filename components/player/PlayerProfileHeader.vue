@@ -33,29 +33,38 @@ export default class PlayerProfileHeader extends Vue {
 </script>
 
 <style scoped lang="scss">
-$img-overlap: 2.5em;
+$img-overlap: 2em;
 
 .profile {
-  display: flex;
+  display: grid;
+  grid-template-areas: 'img name' 'img meta';
+  grid-template-columns: 7em 1fr;
   margin-top: $img-overlap + 1em;
   background-color: $background--secondary;
   padding: 0.5em 1em;
 
   &__img {
+    grid-area: img;
     margin-top: -$img-overlap;
     margin-right: 1em;
     border-radius: 50%;
-    @include square(5em);
+    border: 0.25em solid $background--secondary;
+    @include square(6em);
   }
   &__name {
+    grid-area: name;
     font-size: 1.25em;
     margin-top: 0;
+    margin-bottom: 0.1em;
   }
   &__meta {
+    grid-area: meta;
     display: flex;
   }
   &__meta-icon {
     @include square(1.5em);
+
+    margin-right: 0.5em;
   }
 }
 </style>

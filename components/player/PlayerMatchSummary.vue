@@ -115,12 +115,20 @@ export default class MatchSummaryCard extends Vue {
   display: flex;
   flex-direction: column;
   position: relative;
+<<<<<<< HEAD
   border-radius: .15em .15em 1em 1em;
+=======
+  border-radius: 0.15em 0.15em 1em 1em;
+>>>>>>> dev
   background-color: $background--secondary;
   border-top: solid 1em;
   border-color: $green;
   box-shadow: $shadow;
+<<<<<<< HEAD
   transition: transform .05s ease-out, box-shadow .05s ease-out;
+=======
+  transition: transform 0.05s ease-out, box-shadow 0.05s ease-out;
+>>>>>>> dev
   overflow: hidden;
 
   @include bp(25rem) {

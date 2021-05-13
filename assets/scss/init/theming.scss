@@ -1,0 +1,17 @@
+@use '../variables/colors';
+
+@each $theme-name, $theme in colors.$colors {
+  @if ($theme-name != base) {
+    .theme--#{$theme-name} {
+      @each $variable-key, $variable-val in $theme {
+        --col-#{'' + $variable-key}: #{$variable-val};
+      }
+    }
+  } @else {
+    :root {
+      @each $variable-key, $variable-val in $theme {
+        --col-#{'' + $variable-key}: #{$variable-val};
+      }
+    }
+  }
+}
