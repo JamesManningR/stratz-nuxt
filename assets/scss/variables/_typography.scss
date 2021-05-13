@@ -1,13 +1,28 @@
 @use 'sass:string';
 @use 'sass:map';
+
+@import url('https://fonts.googleapis.com/css2?family=Fira+Sans+Condensed&family=Hind+Guntur&family=Hind:wght@300&display=swap');
+
 $family: (
-	heading: verdana,
-	body: sans-serif,
-	monospace: 'Monaco, Consolas, \'Andale Mono\', \'DejaVu Sans Mono\', monospace'
+	heading: (
+		base: 'Fira Sans Condensed', 
+		fallback: sans-serif,
+	),
+	subheading: (
+		base: 'Hind Guntur',
+		fallback: sans-serif,
+	),
+	body: (
+		base: 'Hind', 
+		fallback: sans-serif,
+	),
 );
 $font-size--base: 1.6rem; // Set base font size to 16 px (1rem = 10px)
 
 // Nicer syntax for accessing maps ==========================
-@function family($font-name) {
-	@return map.get($family, $font-name);
+@function font-family($font-name, $variation: false) {
+	@if ($variation) {
+		@return map-get($family, $font-name, $variation);
+	}
+	@return #{map-get($family, $font-name, "base")}, #{map-get($family, $font-name, "fallback")};
 }

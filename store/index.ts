@@ -1,4 +1,3 @@
-
 import { PlayerType } from '@altgen/stratz-types'
 import { GetterTree, ActionTree, MutationTree } from 'vuex'
 
@@ -30,6 +29,7 @@ export const actions: ActionTree<RootState, RootState> = {
           query: getProfile,
           variables: {
             playerId,
+            matchAmount: 40,
           },
         })
         .then((res) => {

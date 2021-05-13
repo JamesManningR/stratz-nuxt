@@ -8,6 +8,8 @@
 <style lang="scss">
 body {
   background: #efefef;
+  color: $text;
+  font-family: font-family('body');
 }
 
 *,
@@ -17,8 +19,16 @@ body {
   margin: 0;
 }
 
-#__layout {
-  height: 100vh;
+h1 {
+  font-family: font-family('heading');
+}
+
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: font-family('subheading');
 }
 
 main {
@@ -42,9 +52,22 @@ button {
   border-radius: 1em;
 }
 
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
 ul {
   list-style: none;
   padding: 0;
+}
+
+section {
+  padding: 0 1em;
+}
+
+svg {
+  @include square(1em);
 }
 
 .sr-only {

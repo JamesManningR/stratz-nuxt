@@ -1,10 +1,9 @@
 <template>
-  <li
+  <router-link :to="`/match/${match.id}`" 
     class="player-match-summary"
     :class="{
       'player-match-summary--loss': !player.isVictory,
-    }"
-  >
+    }">
     <svg-icon
       class="player-match-summary__team"
       :name="playerTeam.toLowerCase()"
@@ -18,7 +17,7 @@
     />
 
     <ul class="player-match-summary__stats">
-      <li class="player-match-summary-stat">
+      <li class="player-match-summary__stat player-match-summary__kda">
         <span class="player-match-summary__kda-stat">
           <svg-icon
             class="player-match-summary__stats-icon"
@@ -27,7 +26,6 @@
           />
           {{ player.kills }}
         </span>
-        /
         <span class="player-match-summary__kda-stat">
           <svg-icon
             class="player-match-summary__stats-icon"
@@ -36,7 +34,6 @@
           />
           {{ player.deaths }}
         </span>
-        /
         <span class="player-match-summary__kda-stat">
           <svg-icon
             class="player-match-summary__stats-icon"
@@ -46,12 +43,28 @@
           {{ player.assists }}
         </span>
       </li>
-      <li>GPM: {{ player.goldPerMinute }}</li>
-      <li>XPM: {{ player.experiencePerMinute }}</li>
-      <li>Lane: {{ playerLane }}</li>
-      <li>Role: {{ playerRole }}</li>
+      <li class="player-match-summary__stat">
+        <svg-icon class="player-match-summary__stats-icon" name="gpm" />
+        <span>GPM: {{ player.goldPerMinute }}</span>
+      </li>
+      <li class="player-match-summary__stat">
+        <svg-icon class="player-match-summary__stats-icon" name="star" />
+        <span>XPM: {{ player.experiencePerMinute }}</span>
+      </li>
+      <li class="player-match-summary__stat">
+        <lane-icon
+          class="player-match-summary__stats-icon"
+          :lane="player.lane"
+          :isRadiant="player.isRadiant"
+        />
+        <span>Lane: {{ playerLane }}</span>
+      </li>
+      <li class="player-match-summary__stat">
+        <svg-icon class="player-match-summary__stats-icon" name="gpm" />
+        <span>Role: {{ playerRole }}</span>
+      </li>
     </ul>
-  </li>
+  </router-link>
 </template>
 
 <script lang="ts">
@@ -65,7 +78,10 @@ export default class MatchSummaryCard extends Vue {
   @Prop({ type: Object as () => MatchType })
   public match!: MatchType
 
+  // TODO: Dry this out, babel wont let me use the right map, so figure this out when you can
   private RoleMap = ['Core', 'Light Support', 'Hard Support', 'Unknown']
+
+  // TODO: Dry this out, babel wont let me use the right map, so figure this out when you can
   private LaneMap = ['Safe', 'Mid', 'Off']
 
   get player() {
@@ -96,38 +112,88 @@ export default class MatchSummaryCard extends Vue {
 
 <style scoped lang="scss">
 .player-match-summary {
-  max-width: 100%;
   display: flex;
+  flex-direction: column;
   position: relative;
-  border-radius: 0 0 1em 1em;
-  flex-direction: row;
-  background-color: #efefef;
+  border-radius: .15em .15em 1em 1em;
+  background-color: $background--secondary;
   border-top: solid 1em;
-  border-color: #092;
+  border-color: $green;
+  box-shadow: $shadow;
+  transition: transform .05s ease-out, box-shadow .05s ease-out;
+  overflow: hidden;
+
+  @include bp(25rem) {
+    flex-direction: row;
+  }
+
+  &:hover {
+    cursor: pointer;
+    transform: translate(-0.1em, -0.1em);
+    box-shadow: $shadow--raised;
+  }
+
+  &:active {
+    transform: translate(.1em, .1em);
+    box-shadow: 0 0 0 $shadow-color;
+  }
 
   &--loss {
-    border-color: #955;
+    border-color: $red;
   }
 
   &__team {
-    @include square(2em);
+    @include square(2.5em);
 
     position: absolute;
-    top: 0.15em;
-    left: 0.15em;
+    top: 0;
+    left: 0;
+    filter: drop-shadow(0 0 .3em rgba(0,0,0,0.5));
   }
 
   &__hero {
-    flex-grow: 1;
-    height: 8em;
+    height: 100%;
     object-fit: cover;
+    box-shadow: 0 0.2em .3em $shadow-color;
+
+    @include bp(25rem) {
+      box-shadow: 0.2em 0 .3em $shadow-color;
+      flex-direction: row;
+      max-width: 14em;
+    }
+    @include bp(100rem) {
+      max-width: unset;
+    }
   }
 
   &__stats {
     padding: 1em;
+    flex-grow: 1;
 
     &-icon {
-      @include square(1em);
+      @include square(1.2em);
+    }
+  }
+
+  &__stat {
+    margin-bottom: 0.5em;
+  }
+
+  &__kda {
+    display: flex;
+    flex-direction: column;
+    @include bp(12.5rem) {
+      display: inline;
+    }
+  }
+
+  &__kda-stat {
+    @include bp(12.5rem) {
+      &:nth-child(-n + 2) {
+        &::after {
+          content: '/';
+        }
+      }
     }
   }
 }

@@ -9,13 +9,11 @@ export const getMatches = gql`
           displayName
           name
         }
-        kills
-        deaths
-        assists
-        networth
-        goldPerMinute
-        level
+        isRadiant
       }
+      didRadiantWin
+      statsDateTime
+      endDateTime
     }
   }
 `
