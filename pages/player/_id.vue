@@ -14,18 +14,20 @@
         <svg-icon
           v-if="profile.steamAccount.isDotaPlusSubscriber"
           class="profile__meta-icon"
+          title="Player is subscribed to dota plus"
           name="dota-plus"
         />
       </div>
     </section>
     <section class="matches">
+      <h2>Matches</h2>
       <ul class="match-summaries">
-        <match-summary-card
+        <player-match-summary
           v-for="match in profile.matches"
           :key="match.id"
           :match="match"
         >
-        </match-summary-card>
+        </player-match-summary>
       </ul>
     </section>
   </main>
@@ -58,6 +60,7 @@ $top-margin: 3em;
   margin-top: $top-margin;
   background-color: $background--secondary;
   padding: 0.5em 1em;
+
   &__img {
     margin-top: -$top-margin;
     margin-right: 1em;
@@ -74,5 +77,11 @@ $top-margin: 3em;
   &__meta-icon {
     @include square(1.5em);
   }
+}
+
+.match-summaries {
+  display: grid;
+  gap: 1em;
+  grid-template-columns: repeat(auto-fill, 25em);
 }
 </style>

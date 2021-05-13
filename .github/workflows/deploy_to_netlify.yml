@@ -1,7 +1,7 @@
 name: Publish to Netlify
 on:
   workflow_dispatch:
-    push:
+  push:
     branches:
       - "main"
 
