@@ -1,4 +1,4 @@
-name: Build and Publish to NPM registry
+name: Publish to Netlify
 on:
   workflow_dispatch:
 

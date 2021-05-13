@@ -1,8 +1,14 @@
 <template>
   <main class="login">
-    <form class="login__form">
+    <form class="login__form" @submit.prevent="handleSubmit()">
       <h1 class="login__title">Enter Your Steam Id</h1>
-      <input id="steamId" class="login__input" type="text" name="steamId" />
+      <input
+        id="steamId"
+        v-model="steamId"
+        class="login__input"
+        type="text"
+        name="steamId"
+      />
       <button type="submit">Submit</button>
     </form>
   </main>
@@ -13,7 +19,13 @@ import Vue from 'vue'
 import { Component } from 'vue-property-decorator'
 
 @Component
-export default class IndexPage extends Vue {}
+export default class IndexPage extends Vue {
+  public steamId: String
+
+  handleSubmit() {
+    this.$router.push(`player/${this.steamId}`)
+  }
+}
 </script>
 
 <style scoped lang="scss">

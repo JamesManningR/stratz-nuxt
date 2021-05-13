@@ -7,7 +7,7 @@
 
 <style lang="scss">
 body {
-  background-image: $background;
+  background: #efefef;
 }
 
 *,

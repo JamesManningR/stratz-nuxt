@@ -1,0 +1,18 @@
+
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	viewBox="0 0 300 300" style="enable-background:new 0 0 300 300;" xml:space="preserve">
+	<title>Dota Plus</title>
+	<defs>
+		<linearGradient id="dota-plus-gradient">
+			<stop offset='.5' stop-color='#f8ae00'/>
+			<stop offset='.5' stop-color='#c97954'/>
+		</linearGradient>
+		<style>
+			.icon__dota-plus {
+				fill: url("#dota-plus-gradient")
+			}
+		</style>
+	</defs>
+	<path class="icon__dota-plus" d="M278.9,225V75L150.5,0L22.1,75v150l128.4,75L278.9,225z M46,211.3V90.1l104.1-60.6l104.1,60.6v121.2l-104.1,60.6L46,211.3zM215.3,129.6L170.4 129.6 170.4 85.2 130 85.2 130 129.6 85.7 129.6 85.7 170 130 170 130 214.8 170.4 214.8 170.4 170 215.3 170 z
+		"/>
+</svg>
