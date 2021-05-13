@@ -7,8 +7,16 @@
         :alt="profile.steamAccount.name"
       />
       <h1 class="profile__name">{{ profile.steamAccount.name }}</h1>
-      <h2>ID: {{ profile.steamAccount.realName }}</h2>
-      <span>{{ profile.steamAccount.stateCode }}</span>
+      <div class="profile__meta">
+        <a :href="profile.steamAccount.profileUri">
+          <svg-icon class="profile__meta-icon" name="steam" />
+        </a>
+        <svg-icon
+          v-if="profile.steamAccount.isDotaPlusSubscriber" 
+          class="profile__meta-icon"
+          name="dota-plus"
+        />
+      </div>
     </section>
     <section class="matches">
       <ul class="match-summaries">
@@ -43,17 +51,28 @@ export default class PlayerPage extends Vue {
 </script>
 
 <style scoped lang="scss">
-$top-margin: 5em;
+$top-margin: 3em;
 
 .profile {
   display: flex;
   margin-top: $top-margin;
   background-color: $background--secondary;
-  padding: 1em;
+  padding: 0.5em 1em;
   &__img {
     margin-top: -$top-margin;
     margin-right: 1em;
     border-radius: 50%;
+    @include square(5em);
+  }
+  &__name {
+    font-size: 1.25em;
+    margin-top: 0;
+  }
+  &__meta {
+    display: flex;
+  }
+  &__meta-icon {
+    @include square(1.5em);
   }
 }
 </style>

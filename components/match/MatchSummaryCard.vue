@@ -2,19 +2,24 @@
   <li
     class="match-summary"
     :class="{
-      'match-summary--loss': match.didRadiantWin != match.players[0].isRadiant,
+      'match-summary--loss': match.didRadiantWin != player.isRadiant,
     }"
   >
     <img
       class="match-summary__hero-img"
-      :src="`http://cdn.dota2.com/apps/dota2/images/heroes/${match.players[0].hero.shortName}_sb.png`"
-      :alt="match.players[0].hero.displayName"
+      :src="`http://cdn.dota2.com/apps/dota2/images/heroes/${player.hero.shortName}_sb.png`"
+      :alt="player.hero.displayName"
     />
     <h3 class="match-summary__hero-name">
-      {{ match.players[0].hero.displayName }}
+      {{ player.hero.displayName }}
     </h3>
-    <h4>{{ playerTeam }} Team</h4>
-    <h4>{{ winningTeam }} Win</h4>
+    <span class="match-summary__player-team">
+      <svg-icon
+        class="match-summary__team-icon"
+        :name="playerTeam.toLowerCase()" />
+      {{ playerTeam }}
+    </span>
+    <h4 lass="match-summary__winning-team">{{ winningTeam }} Win</h4>
   </li>
 </template>
 
@@ -29,8 +34,12 @@ export default class MatchSummaryCard extends Vue {
   @Prop({ type: Object as () => MatchType })
   public match!: MatchType
 
+  get player() {
+    return this.match.players[0]
+  }
+
   get matchWon() {
-    return this.match.didRadiantWin !== this.match.players[0].isRadiant
+    return this.match.didRadiantWin !== this.player.isRadiant
   }
 
   get winningTeam() {
@@ -38,7 +47,7 @@ export default class MatchSummaryCard extends Vue {
   }
 
   get playerTeam() {
-    return this.match.players[0].isRadiant ? 'Radiant' : 'Dire'
+    return this.player.isRadiant ? 'Radiant' : 'Dire'
   }
 }
 </script>
