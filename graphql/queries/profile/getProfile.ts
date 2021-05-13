@@ -1,7 +1,7 @@
 import gql from 'graphql-tag'
 
 export const getProfile = gql`
-  query getProfile($playerId: Long!, $matchAmount: Int = 10) {
+  query getProfile($playerId: Long!, $matchAmount: Int = 10, $skip: Int = 0) {
     player(steamAccountId: $playerId) {
       steamAccount {
         avatar
@@ -15,7 +15,7 @@ export const getProfile = gql`
       isFollowed
       winCount
       matchCount
-      matches(request: { take: $matchAmount }) {
+      matches(request: { take: $matchAmount, skip: $skip }) {
         id
         didRadiantWin
         startDateTime

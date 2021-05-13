@@ -10,15 +10,18 @@ export const getMatch = gql`
           shortName
         }
         steamAccount {
+          id
           name
         }
+        isVictory
+        isRadiant
+        role
+        lane
         kills
         deaths
         assists
-        networth
         goldPerMinute
-        level
-        isRadiant
+        experiencePerMinute
       }
     }
   }
