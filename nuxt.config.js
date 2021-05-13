@@ -60,6 +60,7 @@ export default {
     // Doc: https://github.com/nuxt/content
     '@nuxt/content',
     '@nuxtjs/apollo',
+    '@nuxtjs/svg-sprite',
   ],
   /*
    ** Axios module configuration
