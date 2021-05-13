@@ -62,10 +62,6 @@ ul {
   padding: 0;
 }
 
-section {
-  padding: 0 1em;
-}
-
 svg {
   @include square(1em);
 }
