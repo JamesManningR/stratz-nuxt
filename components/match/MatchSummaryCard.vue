@@ -16,7 +16,8 @@
     <span class="match-summary__player-team">
       <svg-icon
         class="match-summary__team-icon"
-        :name="playerTeam.toLowerCase()" />
+        :name="playerTeam.toLowerCase()"
+      />
       {{ playerTeam }}
     </span>
     <h4 lass="match-summary__winning-team">{{ winningTeam }} Win</h4>

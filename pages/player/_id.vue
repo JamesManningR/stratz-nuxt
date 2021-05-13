@@ -12,7 +12,7 @@
           <svg-icon class="profile__meta-icon" name="steam" />
         </a>
         <svg-icon
-          v-if="profile.steamAccount.isDotaPlusSubscriber" 
+          v-if="profile.steamAccount.isDotaPlusSubscriber"
           class="profile__meta-icon"
           name="dota-plus"
         />
