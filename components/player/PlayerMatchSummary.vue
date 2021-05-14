@@ -1,9 +1,11 @@
 <template>
-  <router-link :to="`/match/${match.id}`" 
+  <router-link
+    :to="`/match/${match.id}`"
     class="player-match-summary"
     :class="{
       'player-match-summary--loss': !player.isVictory,
-    }">
+    }"
+  >
     <svg-icon
       class="player-match-summary__team"
       :name="playerTeam.toLowerCase()"
@@ -55,7 +57,7 @@
         <lane-icon
           class="player-match-summary__stats-icon"
           :lane="player.lane"
-          :isRadiant="player.isRadiant"
+          :is-radiant="player.isRadiant"
         />
         <span>Lane: {{ playerLane }}</span>
       </li>
@@ -115,20 +117,12 @@ export default class MatchSummaryCard extends Vue {
   display: flex;
   flex-direction: column;
   position: relative;
-<<<<<<< HEAD
-  border-radius: .15em .15em 1em 1em;
-=======
   border-radius: 0.15em 0.15em 1em 1em;
->>>>>>> dev
   background-color: $background--secondary;
   border-top: solid 1em;
   border-color: $green;
   box-shadow: $shadow;
-<<<<<<< HEAD
-  transition: transform .05s ease-out, box-shadow .05s ease-out;
-=======
   transition: transform 0.05s ease-out, box-shadow 0.05s ease-out;
->>>>>>> dev
   overflow: hidden;
 
   @include bp(25rem) {
@@ -142,7 +136,7 @@ export default class MatchSummaryCard extends Vue {
   }
 
   &:active {
-    transform: translate(.1em, .1em);
+    transform: translate(0.1em, 0.1em);
     box-shadow: 0 0 0 $shadow-color;
   }
 
@@ -156,16 +150,16 @@ export default class MatchSummaryCard extends Vue {
     position: absolute;
     top: 0;
     left: 0;
-    filter: drop-shadow(0 0 .3em rgba(0,0,0,0.5));
+    filter: drop-shadow(0 0 0.3em rgba(0, 0, 0, 0.5));
   }
 
   &__hero {
     height: 100%;
     object-fit: cover;
-    box-shadow: 0 0.2em .3em $shadow-color;
+    box-shadow: 0 0.2em 0.3em $shadow-color;
 
     @include bp(25rem) {
-      box-shadow: 0.2em 0 .3em $shadow-color;
+      box-shadow: 0.2em 0 0.3em $shadow-color;
       flex-direction: row;
       max-width: 14em;
     }

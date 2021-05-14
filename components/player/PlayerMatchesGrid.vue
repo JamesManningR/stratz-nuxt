@@ -6,10 +6,7 @@
         v-for="match in matches"
         :key="match.id"
         :match="match"
-<<<<<<< HEAD
-=======
         class="match-summaries__summary"
->>>>>>> dev
       >
       </player-match-summary>
     </ul>
@@ -30,30 +27,22 @@ export default class PlayerProfileGrid extends Vue {
 
 <style lang="scss" scoped>
 .match-summaries {
-<<<<<<< HEAD
-=======
   padding: 1.5em 1em;
->>>>>>> dev
   display: flex;
   flex-direction: column;
   gap: 1em;
   max-width: 100%;
-<<<<<<< HEAD
-=======
   overflow-y: scroll;
 
   @include bp(20rem) {
     display: flex;
     flex-direction: row;
   }
->>>>>>> dev
 
   @include bp(25rem) {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(25em, 1fr));
   }
-<<<<<<< HEAD
-=======
 
   &__summary {
     flex-basis: 25em;
@@ -62,6 +51,5 @@ export default class PlayerProfileGrid extends Vue {
       max-width: 15em;
     }
   }
->>>>>>> dev
 }
 </style>

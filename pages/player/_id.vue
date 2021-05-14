@@ -23,7 +23,3 @@ export default class PlayerPage extends Vue {
   public profile!: PlayerType
 }
 </script>
-
-<style scoped lang="scss">
-$img-overlap: 2.5em;
-</style>

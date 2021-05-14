@@ -2,25 +2,6 @@
 
 // Colors
 // Alt for dark/light variants
-<<<<<<< HEAD
-$primary: #CB5857; // Priamry brand color
-$green: #4c9d49;
-$red: #c52e1c;
-
-// Backgrounds
-$background: linear-gradient(
-  178.2deg,
-  rgba(118, 8, 23, 1) 10.9%,
-  rgba(158, 12, 33, 1) 62.6%
-);
-$background--secondary: #EAEAEA;
-$background--tertiary: #EDEDED;
-
-// Text colour - used on body (default)
-$text: #3a3a3a;
-$text--inverted: #dadada;
-$text--secondary: #555;
-=======
 $green: var(--col-green);
 $red: var(--col-red);
 
@@ -33,6 +14,7 @@ $background--tertiary: var(--col-tertiary);
 $text: var(--col-text);
 $text--inverted: var(--col-text--inverted);
 $text--secondary: var(--col-text--secondary);
+
 
 
 $colors: (
@@ -66,4 +48,3 @@ $colors: (
     green: #6CFF26,
   ),
 )
->>>>>>> dev
