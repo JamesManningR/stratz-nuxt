@@ -20,7 +20,7 @@ import { Component } from 'vue-property-decorator'
 
 @Component
 export default class IndexPage extends Vue {
-  public steamId: String
+  public steamId: String = ''
 
   handleSubmit() {
     this.$router.push(`player/${this.steamId}`)
