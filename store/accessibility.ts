@@ -1,20 +1,14 @@
-import { GetterTree, ActionTree, MutationTree } from 'vuex'
+import { GetterTree, MutationTree } from 'vuex'
+import { AccessibilityState, AccessibilityMutations } from './types'
 
-export type AccesibilityState = {
-  theming: {
-    colorblind: Boolean
-    light: Boolean
-  }
-}
-
-export const state: AccesibilityState = {
+export const state: AccessibilityState = {
   theming: {
     colorblind: false,
     light: true,
   },
 }
 
-export const getters: GetterTree<AccesibilityState, AccesibilityState> = {
+export const getters: GetterTree<AccessibilityState, AccessibilityState> = {
   themeClasses: (state): String => {
     const classes: String[] = []
 
@@ -30,36 +24,31 @@ export const getters: GetterTree<AccesibilityState, AccesibilityState> = {
   },
 }
 
-export const mutations: MutationTree<AccesibilityState> = {
-  SET_COLORBLIND(state: AccesibilityState, payload: Boolean): void {
+export const mutations: MutationTree<AccessibilityState> = {
+  [AccessibilityMutations.SET_COLORBLIND](
+    state: AccessibilityState,
+    payload: Boolean
+  ): void {
     const newState = state
 
     newState.theming.colorblind = payload
 
     state = newState
   },
-  SET_LIGHT_MODE(state: AccesibilityState, payload: Boolean): void {
+  [AccessibilityMutations.TOGGLE_COLORBLIND](state: AccessibilityState) {
+    state.theming.colorblind = !state.theming.colorblind
+  },
+  [AccessibilityMutations.SET_LIGHTMODE](
+    state: AccessibilityState,
+    payload: Boolean
+  ): void {
     const newState = state
 
     newState.theming.light = payload
 
     state = newState
   },
-}
-
-export const actions: ActionTree<AccesibilityState, AccesibilityState> = {
-  togglelightMode({ commit, state }) {
-    const payload = !state.theming.light
-    commit('SET_LIGHT_MODE', payload)
-  },
-  toggleColorBlind({ commit, state }) {
-    const payload = !state.theming.colorblind
-    commit('SET_COLORBLIND', payload)
-  },
-  setlightMode({ commit }, value: Boolean) {
-    commit('SET_LIGHT_MODE', value)
-  },
-  setColorBlind({ commit }, value: Boolean) {
-    commit('SET_COLORBLIND', value)
+  [AccessibilityMutations.TOGGLE_LIGHTMODE](state: AccessibilityState) {
+    state.theming.light = !state.theming.light
   },
 }

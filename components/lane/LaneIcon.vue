@@ -67,7 +67,7 @@ export default class LaneIcon extends Vue {
 // TODO: ALSO REALLY INEFICIENT, Please fix this
 .lane-icon {
   .path {
-    opacity: 0.15;
+    opacity: 0.25;
 
     &--r {
       fill: $green;

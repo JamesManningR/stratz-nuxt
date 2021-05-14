@@ -1,5 +1,6 @@
 <template>
   <main class="login">
+    <accessibility-menu />
     <form class="login__form" @submit.prevent="handleSubmit()">
       <h1 class="login__title">Enter Your Steam Id</h1>
       <input

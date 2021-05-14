@@ -2,7 +2,10 @@
   <section class="accessibility-menu">
     <label>
       Colourblind Theme
-      <!-- <input type="checkbox" @change="setColorBlind($event)" /> -->
+      <input
+        type="checkbox"
+        @change="$store.dispatch('setColorBlind', $event.target.value)"
+      />
     </label>
   </section>
 </template>
@@ -12,9 +15,5 @@ import Vue from 'vue'
 import { Component } from 'vue-property-decorator'
 
 @Component
-export default class AccessibilityMenu extends Vue {
-  // setColorBlind(evt): void {
-  //   this.$state.dispatch('setColorBlind', evt.target.value)
-  // }
-}
+export default class AccessibilityMenu extends Vue {}
 </script>
