@@ -30,7 +30,7 @@
 import Vue from 'vue'
 import { mapActions, mapState } from 'vuex'
 import { Component } from 'vue-property-decorator'
-import { MatchState } from '~/store/matches'
+import { MatchState } from '~/store/types'
 
 @Component({
   computed: mapState(['matches']),
