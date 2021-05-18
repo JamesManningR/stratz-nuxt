@@ -1,14 +1,14 @@
 import { PlayerType } from '@altgen/stratz-types'
 
-export type RootState = {
+export interface State {
   profile: PlayerType
 }
 
-export enum RootMutations {
+export enum Mutations {
   RESET_PROFILE = 'RESET_PROFILE',
   SET_PROFILE = 'SET_PROFILE',
 }
 
-export enum RootActions {
+export enum Actions {
   fetchProfile = 'fetchProfile',
 }

@@ -1,9 +1,20 @@
 <template>
-  <div class="app theme--light">
+  <div class="app theme--light" :class="themeClasses">
     <app-header />
     <Nuxt />
   </div>
 </template>
+
+<script lang="ts">
+import { Vue, Component } from 'nuxt-property-decorator'
+import { mapGetters } from 'vuex'
+import { AccessibilityGetters } from '~/store/types'
+
+@Component({
+  computed: mapGetters('accessibility', [AccessibilityGetters.themeClasses]),
+})
+export default class DefaultLayout extends Vue {}
+</script>
 
 <style lang="scss">
 @import '~/assets/scss/init/theming';
@@ -43,6 +54,10 @@ input {
   background-color: #0008;
   border: none;
   border-radius: 1em;
+}
+
+input[type="checkbox"] {
+  padding: 1rem;
 }
 
 button {

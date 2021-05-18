@@ -1,11 +1,11 @@
 import { MatchType } from '@altgen/stratz-types'
 
-export type MatchState = {
+export interface State {
   match: MatchType
   matches: MatchType[]
 }
 
-export enum MatchMutations {
+export enum Mutations {
   RESET_MATCH = 'RESET_MATCH',
   SET_MATCH = 'SET_MATCH',
   RESET_MATCHES = 'RESET_MATCHES',
@@ -14,7 +14,7 @@ export enum MatchMutations {
   REMOVE_MATCH_FROM_MATCHES = 'REMOVE_MATCH_FROM_MATCHES',
 }
 
-export enum MatchActions {
+export enum Actions {
   fetchMatch = 'fetchMatch',
   fetchMatches = 'fetchMatches',
 }

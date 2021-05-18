@@ -22,7 +22,7 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import { Component, Prop } from 'vue-property-decorator'
+import { Component, Prop } from 'nuxt-property-decorator'
 import { PlayerType } from '@altgen/stratz-types'
 
 @Component

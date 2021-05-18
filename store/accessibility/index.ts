@@ -1,15 +1,17 @@
 import { GetterTree, MutationTree } from 'vuex'
-import { AccessibilityState, AccessibilityMutations } from './types'
 
-export const state: AccessibilityState = {
+import { State as RootState } from '../types'
+import { State, Mutations, Getters } from './types'
+
+export const state: State = {
   theming: {
     colorblind: false,
     light: true,
   },
 }
 
-export const getters: GetterTree<AccessibilityState, AccessibilityState> = {
-  themeClasses: (state): String => {
+export const getters: GetterTree<State, RootState> = {
+  [Getters.themeClasses]: (state): String => {
     const classes: String[] = []
 
     Object.keys(state.theming).forEach((key) => {
@@ -24,31 +26,25 @@ export const getters: GetterTree<AccessibilityState, AccessibilityState> = {
   },
 }
 
-export const mutations: MutationTree<AccessibilityState> = {
-  [AccessibilityMutations.SET_COLORBLIND](
-    state: AccessibilityState,
-    payload: Boolean
-  ): void {
+export const mutations: MutationTree<State> = {
+  [Mutations.SET_COLORBLIND](state: State, payload: Boolean): void {
     const newState = state
 
     newState.theming.colorblind = payload
 
     state = newState
   },
-  [AccessibilityMutations.TOGGLE_COLORBLIND](state: AccessibilityState) {
+  [Mutations.TOGGLE_COLORBLIND](state: State) {
     state.theming.colorblind = !state.theming.colorblind
   },
-  [AccessibilityMutations.SET_LIGHTMODE](
-    state: AccessibilityState,
-    payload: Boolean
-  ): void {
+  [Mutations.SET_LIGHTMODE](state: State, payload: Boolean): void {
     const newState = state
 
     newState.theming.light = payload
 
     state = newState
   },
-  [AccessibilityMutations.TOGGLE_LIGHTMODE](state: AccessibilityState) {
+  [Mutations.TOGGLE_LIGHTMODE](state: State) {
     state.theming.light = !state.theming.light
   },
 }

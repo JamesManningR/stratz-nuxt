@@ -8,18 +8,18 @@
 <script lang="ts">
 import Vue from 'vue'
 import { mapActions, mapState } from 'vuex'
-import { Component } from 'vue-property-decorator'
+import { Component } from 'nuxt-property-decorator'
 import { PlayerType } from '@altgen/stratz-types'
 
 @Component({
   computed: mapState(['profile']),
   methods: mapActions(['fetchProfile']),
-
-  async fetch({ params, store }) {
-    await store.dispatch('fetchProfile', params.id)
-  },
 })
 export default class PlayerPage extends Vue {
   public profile!: PlayerType
+
+  async fetch({ params, store }) {
+    await store.dispatch('fetchProfile', params.id)
+  }
 }
 </script>

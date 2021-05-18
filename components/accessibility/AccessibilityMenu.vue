@@ -1,18 +1,28 @@
 <template>
+  <!-- AccessibilityMenu -->
   <section class="accessibility-menu">
-    <label>
-      Colourblind Theme
-      <input
-        type="checkbox"
-        @change="$store.dispatch('setColorBlind', $event.target.value)"
-      />
-    </label>
+    <form class="accessibility-options" @change="handleFormChange">
+      <label class="accessibility-options__label">
+        Colourblind Theme
+        <input
+          class="accessibility-options__input"
+          type="checkbox"
+        />
+      </label>
+      <label class="accessibility-options__label">
+        Light Theme
+        <input
+          class="accessibility-options__input"
+          type="checkbox"
+        />
+      </label>
+    </form>
   </section>
 </template>
 
 <script lang="ts">
 import Vue from 'vue'
-import { Component } from 'vue-property-decorator'
+import { Component } from 'nuxt-property-decorator'
 
 @Component
 export default class AccessibilityMenu extends Vue {}

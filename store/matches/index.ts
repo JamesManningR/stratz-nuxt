@@ -1,41 +1,39 @@
 import { ApiResponse, MatchType } from '@altgen/stratz-types'
 import { GetterTree, ActionTree, MutationTree } from 'vuex'
 
-import { RootState, MatchState, MatchActions, MatchMutations } from './types'
+import { State as RootState } from '../types'
+import { State, Actions, Mutations } from './types'
 import { getMatch, getMatches } from '~/graphql/queries/matches'
 
 export const namespaced = true
 
-export const state: MatchState = {
+export const state: State = {
   match: {},
   matches: [],
 }
 
-export const getters: GetterTree<MatchState, RootState> = {
+export const getters: GetterTree<State, RootState> = {
   match: (state) => state.match,
 }
 
-export const mutations: MutationTree<MatchState> = {
-  [MatchMutations.RESET_MATCH](state: MatchState): void {
+export const mutations: MutationTree<State> = {
+  [Mutations.RESET_MATCH](state: State): void {
     state.match = {}
   },
-  [MatchMutations.SET_MATCH](state: MatchState, payload: MatchType): void {
+  [Mutations.SET_MATCH](state: State, payload: MatchType): void {
     state.match = payload
   },
-  [MatchMutations.RESET_MATCHES](state: MatchState): void {
+  [Mutations.RESET_MATCHES](state: State): void {
     state.matches = []
   },
-  [MatchMutations.SET_MATCHES](state: MatchState, payload: MatchType[]): void {
+  [Mutations.SET_MATCHES](state: State, payload: MatchType[]): void {
     state.matches = payload
   },
-  [MatchMutations.ADD_MATCH_TO_MATCHES](
-    state: MatchState,
-    payload: MatchType
-  ): void {
+  [Mutations.ADD_MATCH_TO_MATCHES](state: State, payload: MatchType): void {
     const updatedMatches = [...state.matches, payload]
     state.matches = updatedMatches
   },
-  [MatchMutations.REMOVE_MATCH_FROM_MATCHES](state: MatchState, id: number) {
+  [Mutations.REMOVE_MATCH_FROM_MATCHES](state: State, id: number) {
     const updatedMatches = state.matches.filter((match) => {
       return match.id !== id
     })
@@ -43,8 +41,8 @@ export const mutations: MutationTree<MatchState> = {
   },
 }
 
-export const actions: ActionTree<MatchState, RootState> = {
-  async [MatchActions.fetchMatch]({ commit }) {
+export const actions: ActionTree<State, RootState> = {
+  async [Actions.fetchMatch]({ commit }) {
     try {
       await this.app.apolloProvider.defaultClient
         .query({
@@ -54,14 +52,14 @@ export const actions: ActionTree<MatchState, RootState> = {
           },
         })
         .then((res: ApiResponse) => {
-          commit(MatchMutations.SET_MATCH, res.data.match)
+          commit(Mutations.SET_MATCH, res.data.match)
         })
     } catch (err) {
       console.log(err)
     }
   },
 
-  async [MatchActions.fetchMatches]({ commit }) {
+  async [Actions.fetchMatches]({ commit }) {
     try {
       await this.app.apolloProvider.defaultClient
         .query({
@@ -73,7 +71,7 @@ export const actions: ActionTree<MatchState, RootState> = {
           },
         })
         .then((res: ApiResponse) => {
-          commit(MatchMutations.SET_MATCHES, res.data.matches)
+          commit(Mutations.SET_MATCHES, res.data.matches)
         })
     } catch (err) {
       console.log(err)

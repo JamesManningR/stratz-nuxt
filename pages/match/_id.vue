@@ -29,7 +29,7 @@
 <script lang="ts">
 import Vue from 'vue'
 import { mapActions, mapState } from 'vuex'
-import { Component } from 'vue-property-decorator'
+import { Component } from 'nuxt-property-decorator'
 import { MatchState } from '~/store/types'
 
 @Component({
