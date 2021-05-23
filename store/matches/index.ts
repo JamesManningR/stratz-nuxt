@@ -1,51 +1,57 @@
 import { ApiResponse, MatchType } from '@altgen/stratz-types'
-import { GetterTree, ActionTree, MutationTree } from 'vuex'
+import { Module, VuexModule, Mutation, Action } from 'vuex-module-decorators'
 
 import { State as RootState } from '../types'
 import { State, Actions, Mutations } from './types'
 import { getMatch, getMatches } from '~/graphql/queries/matches'
 
-export const namespaced = true
+@Module({
+  name: 'matches',
+  stateFactory: true,
+  namespaced: true,
+})
+class MatchesModule extends VuexModule {
+  match: MatchType = {}
+  matches: MatchType[] = []
 
-export const state: State = {
-  match: {},
-  matches: [],
-}
-
-export const getters: GetterTree<State, RootState> = {
-  match: (state) => state.match,
-}
-
-export const mutations: MutationTree<State> = {
-  [Mutations.RESET_MATCH](state: State): void {
+  @Mutation
+  RESET_MATCH() {
     state.match = {}
-  },
-  [Mutations.SET_MATCH](state: State, payload: MatchType): void {
+  }
+
+  @Mutation
+  SET_MATCH(state: State, payload: MatchType): void {
     state.match = payload
-  },
-  [Mutations.RESET_MATCHES](state: State): void {
+  }
+
+  @Mutation
+  RESET_MATCHES(state: State): void {
     state.matches = []
-  },
-  [Mutations.SET_MATCHES](state: State, payload: MatchType[]): void {
+  }
+
+  @Mutation
+  SET_MATCHES(state: State, payload: MatchType[]): void {
     state.matches = payload
-  },
-  [Mutations.ADD_MATCH_TO_MATCHES](state: State, payload: MatchType): void {
+  }
+
+  @Mutation
+  ADD_MATCH_TO_MATCHES(state: State, payload: MatchType): void {
     const updatedMatches = [...state.matches, payload]
     state.matches = updatedMatches
-  },
-  [Mutations.REMOVE_MATCH_FROM_MATCHES](state: State, id: number) {
+  }
+
+  @Mutation
+  REMOVE_MATCH_FROM_MATCHES(state: State, id: number) {
     const updatedMatches = state.matches.filter((match) => {
       return match.id !== id
     })
     state.matches = updatedMatches
-  },
-}
+  }
 
-export const actions: ActionTree<State, RootState> = {
+  @Action
   async [Actions.fetchMatch]({ commit }) {
     try {
-      await this.app.apolloProvider.defaultClient
-        .query({
+      await $apolloHelpers.query({
           query: getMatch,
           variables: {
             matchId: 5985270662,
@@ -59,10 +65,10 @@ export const actions: ActionTree<State, RootState> = {
     }
   },
 
+  @Action
   async [Actions.fetchMatches]({ commit }) {
     try {
-      await this.app.apolloProvider.defaultClient
-        .query({
+      await $apolloHelpers.query({
           query: getMatches,
           variables: {
             matchIds: [
