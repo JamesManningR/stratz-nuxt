@@ -71,7 +71,7 @@
 
 <script lang="ts">
 import { Component, Prop } from 'nuxt-property-decorator'
-import { MatchType } from '@altgen/stratz-types'
+import { MatchType } from '~/graphql/types/stratz-api-types'
 
 import Vue from 'vue'
 

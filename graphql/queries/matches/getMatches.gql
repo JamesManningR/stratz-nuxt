@@ -1,0 +1,16 @@
+
+
+query getMatches($matchIds: [Long]!) {
+  matches(ids: $matchIds) {
+    players {
+      hero {
+        displayName
+        name
+      }
+      isRadiant
+    }
+    didRadiantWin
+    statsDateTime
+    endDateTime
+  }
+}

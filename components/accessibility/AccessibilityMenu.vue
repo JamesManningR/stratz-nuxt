@@ -4,17 +4,11 @@
     <form class="accessibility-options" @change="handleFormChange">
       <label class="accessibility-options__label">
         Colourblind Theme
-        <input
-          class="accessibility-options__input"
-          type="checkbox"
-        />
+        <input class="accessibility-options__input" type="checkbox" />
       </label>
       <label class="accessibility-options__label">
         Light Theme
-        <input
-          class="accessibility-options__input"
-          type="checkbox"
-        />
+        <input class="accessibility-options__input" type="checkbox" />
       </label>
     </form>
   </section>

@@ -23,7 +23,7 @@
 <script lang="ts">
 import Vue from 'vue'
 import { Component, Prop } from 'nuxt-property-decorator'
-import { PlayerType } from '@altgen/stratz-types'
+import { PlayerType } from '~/graphql/types/stratz-api-types'
 
 @Component
 export default class PlayerProfileHeader extends Vue {

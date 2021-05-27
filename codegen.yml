@@ -1,0 +1,8 @@
+overwrite: true
+schema: "https://api.stratz.com/graphql"
+documents: "graphql/**/*.gql"
+generates:
+  graphql/types/stratz-api-types.ts:
+    plugins:
+      - typescript
+      - typescript-operations
