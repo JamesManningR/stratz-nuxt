@@ -1,7 +1,6 @@
 export enum Getters {
   themeClasses = 'themeClasses',
 }
-
 export interface State {
   theming: {
     colorblind: Boolean

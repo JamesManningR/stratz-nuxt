@@ -1,4 +1,4 @@
-import { MatchType } from '@altgen/stratz-types'
+import { MatchType } from '~/graphql/types/stratz-api-types'
 
 export interface State {
   match: MatchType

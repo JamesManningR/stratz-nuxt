@@ -79,12 +79,12 @@ export default {
    ** See https://nuxtjs.org/api/configuration-build/
    */
   apollo: {
-    includeNodeModules: true,
     clientConfigs: {
       default: {
         httpEndpoint: 'https://api.stratz.com/graphql',
       },
     },
+    includeNodeModules: true,
   },
   build: {},
 }

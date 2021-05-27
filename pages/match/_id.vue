@@ -30,7 +30,7 @@
 import Vue from 'vue'
 import { mapActions, mapState } from 'vuex'
 import { Component } from 'nuxt-property-decorator'
-import { MatchState } from '~/store/types'
+import { MatchState } from '~/graphql/types/stratz-api-types'
 
 @Component({
   computed: mapState(['matches']),

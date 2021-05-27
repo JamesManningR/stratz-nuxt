@@ -1,4 +1,4 @@
-import { PlayerType } from '@altgen/stratz-types'
+import { PlayerType } from '~/graphql/types/stratz-api-types'
 
 export interface State {
   profile: PlayerType

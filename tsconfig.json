@@ -25,6 +25,7 @@
       ]
     },
     "types": [
+      "main.d.ts",
       "@types/node",
       "@nuxt/types",
       "@nuxtjs/axios",

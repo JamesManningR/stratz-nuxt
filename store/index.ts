@@ -1,4 +1,4 @@
-import { PlayerType } from '@altgen/stratz-types'
+import { PlayerType } from '~/graphql/types/stratz-api-types'
 import { GetterTree, ActionTree, MutationTree } from 'vuex'
 
 import { State, Actions, Mutations } from './types'

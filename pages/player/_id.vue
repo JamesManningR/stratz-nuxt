@@ -9,7 +9,7 @@
 import Vue from 'vue'
 import { mapActions, mapState } from 'vuex'
 import { Component } from 'nuxt-property-decorator'
-import { PlayerType } from '@altgen/stratz-types'
+import { PlayerType } from '~/graphql/types/stratz-api-types'
 
 @Component({
   computed: mapState(['profile']),

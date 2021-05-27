@@ -1,9 +1,10 @@
-import { ApiResponse, MatchType } from '@altgen/stratz-types'
+import { MatchType } from '~/graphql/types/stratz-api-types'
 import { Module, VuexModule, Mutation, Action } from 'vuex-module-decorators'
+import { Store } from 'vuex'
 
 import { State as RootState } from '../types'
 import { State, Actions, Mutations } from './types'
-import { getMatch, getMatches } from '~/graphql/queries/matches'
+import getMatches from '~/graphql/queries/matches/getMatch.gql'
 
 @Module({
   name: 'matches',
@@ -84,3 +85,10 @@ class MatchesModule extends VuexModule {
     }
   },
 }
+
+
+
+const initializer = (store: Store<any>) => initialiseStores(store)
+
+export const plugins = [initializer]
+export * from '~/utils/store-accessor'
