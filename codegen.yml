@@ -2,7 +2,6 @@ overwrite: true
 schema: "https://api.stratz.com/graphql"
 documents: "graphql/**/*.gql"
 generates:
-  graphql/types/stratz-api-types.ts:
+  types/graphql.d.ts:
     plugins:
-      - typescript
-      - typescript-operations
+      - typescript-graphql-files-modules

@@ -2,6 +2,11 @@
 # yarn lockfile v1
 
 
+"@altgen/stratz-types@^1.0.1":
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/@altgen/stratz-types/-/stratz-types-1.0.1.tgz#59603c843e182fdb24274854c072649fb42ec01e"
+  integrity sha512-ZjLScHRiJxNHc++WRNtKtY3EHl6fLHb7awRd06GOd3l/d2OoN/4tLkJw6kIigNclwWjdDjaX7g2ObeA5U53aAw==
+
 "@apollo/client@^3.1.5":
   version "3.3.17"
   resolved "https://registry.yarnpkg.com/@apollo/client/-/client-3.3.17.tgz#7c1b559496b04b806115a34bdcaf224c4ccf921e"

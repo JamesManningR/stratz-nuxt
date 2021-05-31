@@ -1,30 +1,30 @@
-import { PlayerType } from '~/graphql/types/stratz-api-types'
-import { GetterTree, ActionTree, MutationTree } from 'vuex'
+import { PlayerType } from '@altgen/stratz-types'
+import { Module, VuexModule, Action, Mutation } from 'vuex-module-decorators'
 
-import { State, Actions, Mutations } from './types'
 import { getProfile } from '~/graphql/queries/profile'
 
-export const state: State = {
-  profile: {},
-}
+@Module({
+  name: 'matches',
+  stateFactory: true,
+  namespaced: true,
+})
+export class RootModule extends VuexModule {
+  profile: {}
 
-export const getters: GetterTree<State, State> = {
-  match: (state) => state.profile,
-}
+  @Mutation
+  SET_PROFILE(payload: PlayerType): void {
+    this.profile = payload
+  }
+  
+  @Mutation
+  RESET_PROFILE(): void {
+    this.profile = {}
+  }
 
-export const mutations: MutationTree<State> = {
-  [Mutations.SET_PROFILE](state: State, payload: PlayerType): void {
-    state.profile = payload
-  },
-  [Mutations.RESET_PROFILE](state: State): void {
-    state.profile = {}
-  },
-}
-
-export const actions: ActionTree<State, State> = {
-  async [Actions.fetchProfile]({ commit }, playerId: Number) {
+  @Action
+  async fetchProfile({ commit }, playerId: Number) {
     try {
-      await this.app.apolloProvider.defaultClient
+      await this.store.app.apolloProvider.defaultClient
         .query({
           query: getProfile,
           variables: {
