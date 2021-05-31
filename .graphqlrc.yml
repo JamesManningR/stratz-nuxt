@@ -1,2 +1,0 @@
-schema: "./node_modules/~/graphql/types/stratz-api-types/schema.graphql"
-documents: "src/**/*.{graphql,gql,js,ts,jsx,tsx}"
