@@ -3,19 +3,15 @@ import { Module, VuexModule, Action, Mutation } from 'vuex-module-decorators'
 
 import { getProfile } from '~/graphql/queries/profile'
 
-@Module({
-  name: 'matches',
-  stateFactory: true,
-  namespaced: true,
-})
-export class RootModule extends VuexModule {
-  profile: {}
+@Module
+export default class RootModule extends VuexModule {
+  profile: PlayerType = {}
 
   @Mutation
   SET_PROFILE(payload: PlayerType): void {
     this.profile = payload
   }
-  
+
   @Mutation
   RESET_PROFILE(): void {
     this.profile = {}
@@ -38,5 +34,5 @@ export class RootModule extends VuexModule {
     } catch (err) {
       console.log(err)
     }
-  },
+  }
 }

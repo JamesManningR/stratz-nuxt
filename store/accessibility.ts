@@ -1,21 +1,26 @@
-import { GetterTree, MutationTree } from 'vuex'
+import { Module, VuexModule, Mutation } from 'vuex-module-decorators'
 
-import { State as RootState } from '../types'
-import { State, Mutations, Getters } from './types'
-
-export const state: State = {
-  theming: {
-    colorblind: false,
-    light: true,
-  },
+type themingState = {
+  colorblind: Boolean,
+  light: Boolean
 }
 
-export const getters: GetterTree<State, RootState> = {
-  [Getters.themeClasses]: (state): String => {
+@Module({
+  name: 'accessibility',
+  stateFactory: true,
+  namespaced: true,
+})
+export default class RootModule extends VuexModule {
+  theming: themingState = {
+    colorblind: false,
+    light: false,
+  }
+
+  get themeClasses(): String {
     const classes: String[] = []
 
-    Object.keys(state.theming).forEach((key) => {
-      if (state.theming[key]) {
+    Object.keys(this.theming).forEach((key) => {
+      if (this.theming[key]) {
         classes.push(`theme--${key}`)
       }
     })
@@ -23,28 +28,41 @@ export const getters: GetterTree<State, RootState> = {
     const className = classes.join(' ')
 
     return className
-  },
-}
+  }
 
-export const mutations: MutationTree<State> = {
-  [Mutations.SET_COLORBLIND](state: State, payload: Boolean): void {
-    const newState = state
+  @Mutation
+  setColorblind(payload: Boolean): void {
+    const updatedTheming = this.theming
 
-    newState.theming.colorblind = payload
+    updatedTheming.colorblind = payload
 
-    state = newState
-  },
-  [Mutations.TOGGLE_COLORBLIND](state: State) {
-    state.theming.colorblind = !state.theming.colorblind
-  },
-  [Mutations.SET_LIGHTMODE](state: State, payload: Boolean): void {
-    const newState = state
+    this.theming = updatedTheming
+  }
 
-    newState.theming.light = payload
+  @Mutation
+  toggleColorblind() {
+    const updatedTheming = this.theming
 
-    state = newState
-  },
-  [Mutations.TOGGLE_LIGHTMODE](state: State) {
-    state.theming.light = !state.theming.light
-  },
+    updatedTheming.colorblind = !updatedTheming.colorblind
+
+    this.theming = updatedTheming
+  }
+
+  @Mutation
+  setLightmode(payload: Boolean): void {
+    const updatedTheming = this.theming
+
+    updatedTheming.light = payload
+
+    this.theming = updatedTheming
+  }
+
+  @Mutation
+  toggleLightmode() {
+    const updatedTheming = this.theming
+
+    updatedTheming.light = !updatedTheming.light
+
+    this.theming = updatedTheming
+  }
 }

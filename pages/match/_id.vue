@@ -30,20 +30,20 @@
 import Vue from 'vue'
 import { mapActions, mapState } from 'vuex'
 import { Component } from 'nuxt-property-decorator'
-import { MatchState } from '~/graphql/types/stratz-api-types'
+import { MatchType } from '@altgen/stratz-types'
 
 @Component({
   computed: mapState(['matches']),
   methods: mapActions('matches', ['fetchMatch']),
 })
 export default class MatchPage extends Vue {
-  public matches!: MatchState
+  public matches!: MatchType[]
 }
 </script>
 
 <style scoped lang="scss">
 .match {
-  border: 1px solid #CCC;
+  border: 1px solid #ccc;
   border-collapse: collapse;
 }
 </style>

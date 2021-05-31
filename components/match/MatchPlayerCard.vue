@@ -37,7 +37,7 @@
 <script lang="ts">
 import Vue from 'vue'
 import { Component, Prop } from 'nuxt-property-decorator'
-import { MatchPlayerType } from '~/graphql/types/stratz-api-types'
+import { MatchPlayerType } from '@altgen/stratz-types'
 
 @Component
 export default class AppHeader extends Vue {

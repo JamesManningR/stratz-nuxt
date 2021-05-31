@@ -16,7 +16,7 @@
 <script lang="ts">
 import Vue from 'vue'
 import { Component, Prop } from 'nuxt-property-decorator'
-import { MatchType } from '~/graphql/types/stratz-api-types'
+import { MatchType } from '@altgen/stratz-types'
 
 @Component
 export default class PlayerProfileGrid extends Vue {

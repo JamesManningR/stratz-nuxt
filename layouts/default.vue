@@ -8,10 +8,9 @@
 <script lang="ts">
 import { Vue, Component } from 'nuxt-property-decorator'
 import { mapGetters } from 'vuex'
-import { AccessibilityGetters } from '~/store/types'
 
 @Component({
-  computed: mapGetters('accessibility', [AccessibilityGetters.themeClasses]),
+  computed: mapGetters('accessibility', ['themeClasses']),
 })
 export default class DefaultLayout extends Vue {}
 </script>
