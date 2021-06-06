@@ -1,7 +1,7 @@
 import { Module, VuexModule, Mutation } from 'vuex-module-decorators'
 
 type themingState = {
-  colorblind: Boolean,
+  colorblind: Boolean
   light: Boolean
 }
 
